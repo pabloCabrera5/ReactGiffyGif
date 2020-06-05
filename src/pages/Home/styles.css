@@ -1,0 +1,31 @@
+.content {
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    text-align: left;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+.gifwrapper {
+    width: 100%;
+}
+.trendingwrapper {
+    width: 40%;
+}
+#lastsearch {
+    width: 95%;
+}
+
+
+@media screen and (max-width: 600px){
+    .wrapper {
+        /*flex-direction: column;*/
+    }
+    .trendingwrapper {
+        width: 100%;
+    }
+}

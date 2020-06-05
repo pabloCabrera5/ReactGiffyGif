@@ -1,0 +1,30 @@
+.listofgifs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.listofgifs-grid {
+    width: 95%;
+    margin: auto;
+    display: grid;
+    min-height: 100vh;
+    /*auto-fit for adapting correctly to the space */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /*grid-auto-rows: 250px;*/
+    /*for auto adjuts the gifs, for the moment only beta of mozzilla do it*/
+    grid-template-rows: masonry;
+    gap: 0 16px;
+    align-items: center;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .listofgifs-grid {
+        /*auto-fit for adapting correctly to the space */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}

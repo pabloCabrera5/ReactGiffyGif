@@ -1,0 +1,58 @@
+ul {
+    overflow-wrap: anywhere;
+    padding-left: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.category-list-item {
+    color: black;
+    margin: 5px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+    padding: 0 3px;
+}
+/*CSS to add the background color and animation to the list of trendings*/
+.category-list-item:nth-child(5n+0) {
+    background-color: var(--brand-color_1);
+    animation: mymove3 5s infinite;
+}
+.category-list-item:nth-child(5n+1) {
+    background-color: var(--brand-color_2);
+    animation: mymove4 5s infinite;
+}
+.category-list-item:nth-child(5n+2) {
+    background-color: var(--brand-color_3);
+    animation: mymove5 5s infinite;
+}
+.category-list-item:nth-child(5n+3) {
+    background-color: var(--brand-color_4);
+    animation: mymove2 5s infinite;
+}
+.category-list-item:nth-child(5n+4) {
+    background-color: var(--brand-color_5);
+    animation: mymove1 5s infinite;
+}
+
+
+@keyframes mymove1 {
+    50% {box-shadow: 10px 20px 30px var(--brand-color_1);}
+}
+@keyframes mymove2 {
+    50% {box-shadow: 10px 20px 30px var(--brand-color_2);}
+}
+@keyframes mymove3 {
+    50% {box-shadow: 10px 20px 30px var(--brand-color_3);}
+}
+@keyframes mymove4 {
+    50% {box-shadow: 10px 20px 30px var(--brand-color_4);}
+}
+@keyframes mymove5 {
+    50% {box-shadow: 10px 20px 30px var(--brand-color_5);}
+}
+
+a {
+    color: black;
+}

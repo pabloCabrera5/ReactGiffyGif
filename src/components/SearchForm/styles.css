@@ -1,0 +1,28 @@
+form {
+    margin: 5px 0;
+}
+button {
+    color: white;
+    background-color: rgb(19, 145, 230);
+    font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    height: 35px;
+}
+button:active {
+    background-color: rgb(4, 63, 102);
+    box-shadow: 3px 3px 3px rgb(239, 240, 241);
+}
+input {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 0;
+    padding-left: 5px;
+    border-radius: 0 5px 5px 0;
+    height: 33px;
+}

@@ -1,25 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+
+import React, { useCallback } from 'react';
+import './App.css';
+import Home from './pages/Home';
+import Detail from './pages/Detail';
+
+import { Link, Route, useLocation } from 'wouter';
+import SearchResults from './pages/SearchResults';
+import StaticContext from "./context/StaticContext";
+import { GifsContextProvider } from './context/GifsContext';
+import SearchForm from 'components/SearchForm';
 function App() {
+
+  const [path, pushLocation] = useLocation();
+  const handleSubmit = useCallback(({ keyword }) => {
+    pushLocation(`/search/${keyword}`)
+  }, [pushLocation])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StaticContext.Provider value={
+      {
+        value: 'Text',
+        used: true
+      }
+    }>
+      <div className="App">
+        <section className="App-content">
+          <Link to={'/'}>
+            <h1 className='rainbow-text'> Giffy Giff App</h1>
+          </Link>
+          
+          <Link to={'/'}>
+            <img id='logo' src='/gif-logo.png' alt='logo'></img>
+          </Link>
+          <GifsContextProvider>
+            <div className='searchBar'>
+              <SearchForm onSubmit={handleSubmit} />
+            </div>
+            <Route
+              path='/'
+              component={Home} />
+            <Route
+              path='/search/:keyword'
+              component={SearchResults} />
+            <Route
+              path='/gif/:id'
+              component={Detail} />
+            <Route
+              path='/404'
+              component={() =>
+                <h1> 404 Error, no gif :( </h1>} />
+          </GifsContextProvider>
+        </section>
+      </div>
+    </StaticContext.Provider>
   );
 }
 

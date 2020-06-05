@@ -1,0 +1,93 @@
+.Gif {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    color: #fff;
+    /*display: flex;
+    flex-direction: column;
+    text-decoration: none;*/
+    margin: 16px;
+    /*padding: 12px;*/
+    width: 95%;
+    --gridList-gap: 6px;
+    --gifShadow-size : 6px;
+}
+i {
+    font-size: 84px;
+}
+.Gif h4 {
+    margin: 0;
+}
+.Gif img {
+    object-fit: contain;
+    width: 100%;
+}
+.Gif a {
+    color: white;
+}
+/*CSS to add the shadows to the gifs when hover*/
+.Gif:hover:nth-child(5n + 1) {
+  box-shadow: 0 0 0 var(--gifShadow-size) var(--brand-color_1);
+}
+.Gif:hover:nth-child(5n + 2) {
+  box-shadow: 0 0 10px var(--gifShadow-size) var(--brand-color_2);
+}
+.Gif:hover:nth-child(5n + 3) {
+  box-shadow: 0 0 0 var(--gifShadow-size) var(--brand-color_3);
+}
+.Gif:hover:nth-child(5n + 4) {
+  box-shadow: 0 0 10px var(--gifShadow-size) var(--brand-color_4);
+}
+.Gif:hover:nth-child(5n + 5) {
+  box-shadow: 0 0 0 var(--gifShadow-size) var(--brand-color_5);
+}
+
+
+/*CSS to add the shadows to the title's gifs when hover*/
+/*
+.Gif:hover:nth-child(5n + 1) h4 {
+	background-color: var(--brand-color_1);
+	color: var(--theme-body-bg);
+}*/
+.Gif:hover:nth-child(5n + 2) h4 {
+	background-color: var(--brand-color_2);
+	color: var(--theme-body-bg);
+}/*
+.Gif:hover:nth-child(5n + 3) h4 {
+	background-color: var(--brand-color_3);
+	color: white;
+}*/
+.Gif:hover:nth-child(5n + 4) h4 {
+	background-color: var(--brand-color_4);
+	color: white;
+}
+.Gif:hover:nth-child(5n + 5) h4 {
+	background-color: var(--brand-color_5);
+	color: var(--theme-body-bg);
+}
+
+/*CSS to add different sizes to the gifs*/
+/*
+.Gif:nth-child(11n + 1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+  
+.Gif:nth-child(8n+1) {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
+.Gif:nth-child(10n + 3) {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+*/
+
+@media screen and (max-width:600px){
+    .Gif:nth-child(11n + 1),
+    .Gif:nth-child(8n+1),
+    .Gif:nth-child(10n + 3) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
