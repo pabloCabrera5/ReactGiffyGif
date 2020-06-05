@@ -21,7 +21,8 @@ export default function SearchResults({ params }) {
             null : externalRef,
         once: false
     });
-    const title = gifs ? `${gifs.length} results of ${keyword}` : ''
+    const lastKeyword = keyword || localStorage.getItem('lastKeyword');
+    const title = gifs ? `${gifs.length} results of ${lastKeyword}` : ''
 
     const handleNextPage = () => {
         setPage(prevPage => prevPage + 1)
@@ -45,7 +46,7 @@ export default function SearchResults({ params }) {
                 <meta name="rating" content="General" />
             </Helmet>
             <>
-                <h3 className='App-title' id='resulttitle'>{decodeURI(keyword)}</h3>
+                <h3 className='App-title' id='resulttitle'>{decodeURI(lastKeyword)}</h3>
                 <ListOfGifs gifs={gifs} />
                 {loadingNextPage && <Spinner />}
             </>

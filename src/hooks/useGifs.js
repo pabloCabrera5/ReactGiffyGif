@@ -12,7 +12,7 @@ export default function useGifs({ keyword , limit = 11 } = {}) {
     const {gifs, setGifs} = useContext(GifsContext); // we use a global context to set our gifs
     const [page, setPage] = useState(INITIAL_PAGE); // for the pagination 
     
-    const nextKeyword = keyword || localStorage.getItem('lastKeyword') || 'dogs'; // for the last search results
+    const nextKeyword = keyword || localStorage.getItem('lastKeyword') || 'puppys'; // for the last search results
     
     useEffect(() => {
         setLoading(true);

@@ -14,6 +14,7 @@ function App() {
 
   const [path, pushLocation] = useLocation();
   const handleSubmit = useCallback(({ keyword }) => {
+    if(!keyword.trim()) keyword = 'puppys';
     pushLocation(`/search/${keyword}`)
   }, [pushLocation])
 
