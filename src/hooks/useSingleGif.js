@@ -1,9 +1,11 @@
 import useGifs from './useGifs';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import getSingleGif from 'services/getSingleGif';
+import GifsContext from '../context/GifsContext';
 
 export default function useSingleGif({ id }) {
-    const { gifs } = useGifs();
+    const { gifs } = useContext(GifsContext);
+    // const { gifs } = useGifs();
     const singleGifFromCache = gifs.find(singleGif => singleGif.id === id)
 
     const [gif, setGif] = useState(singleGifFromCache);

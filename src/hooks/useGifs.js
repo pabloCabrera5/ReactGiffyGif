@@ -5,7 +5,7 @@ import GifsContext from '../context/GifsContext';
 const INITIAL_PAGE = 0;
 
 // we cant put the default value of the keyword here, because the last search wouldnt work as we need the value to be undefined and go get from the localstorage, and if we set it, it will never be undefined
-export default function useGifs({ keyword , limit = 11 } = {}) {
+export default function useGifs({ keyword , limit = 11, rating } = {}) {
     const [loading, setLoading] = useState(false);
     const [loadingNextPage, setLoadingNextPage] = useState(false); // not using coz we use infinity scroll and do it automatically 
     //const [gifs, setGifs] = useState([]);
@@ -16,24 +16,24 @@ export default function useGifs({ keyword , limit = 11 } = {}) {
     
     useEffect(() => {
         setLoading(true);
-        getGifs({ keyword: nextKeyword, limit: limit })
+        getGifs({ keyword: nextKeyword, limit: limit, rating })
             .then(gifs => {
                 localStorage.setItem('lastKeyword', nextKeyword);
                 setLoading(false);
                 // here we set the state of the Gifscontext with all the gifs
                 setGifs(gifs);
             })
-    }, [keyword, nextKeyword, setGifs]) // need the setGifs ?
+    }, [keyword, nextKeyword, setGifs, rating, limit]) // need the setGifs ?
 
     useEffect( () => {
         if(page === INITIAL_PAGE) return;
         setLoadingNextPage(true);
-        getGifs({keyword: nextKeyword, page})
+        getGifs({keyword: nextKeyword, page, rating})
         .then(nextGifs => {
             setGifs(prevGifs => prevGifs.concat(nextGifs));
             setLoadingNextPage(false);
         })
-    }, [ nextKeyword, page, keyword, setGifs])
+    }, [ nextKeyword, page, keyword, setGifs, rating])
 
     return { loading, loadingNextPage, gifs, setPage }
 }

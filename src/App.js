@@ -1,9 +1,9 @@
 
 
-import React, { useCallback, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import './App.css';
 
-import { Link, Route, useLocation } from 'wouter';
+import { Link, Route } from 'wouter';
 import StaticContext from "./context/StaticContext";
 import { GifsContextProvider } from './context/GifsContext';
 import SearchForm from 'components/SearchForm';
@@ -14,12 +14,6 @@ const ResultsPage = React.lazy(() => import('./pages/SearchResults'));
 const DetailPage = React.lazy(() => import('./pages/Detail'));
 
 export default function App() {
-
-  const [path, pushLocation] = useLocation();
-  const handleSubmit = useCallback(({ keyword }) => {
-    if (!keyword.trim()) keyword = 'puppys';
-    pushLocation(`/search/${keyword}`)
-  }, [pushLocation])
 
   return (
     <StaticContext.Provider value={
@@ -41,13 +35,13 @@ export default function App() {
           <Suspense fallback={null}>
             <GifsContextProvider>
               <div className='searchBar'>
-                <SearchForm onSubmit={handleSubmit} />
+                <SearchForm />
               </div>
               <Route
                 path='/'
                 component={HomePage} />
               <Route
-                path='/search/:keyword'
+                path='/search/:keyword/:rating?'
                 component={ResultsPage} />
               <Route
                 path='/gif/:id'

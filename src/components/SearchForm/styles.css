@@ -16,7 +16,7 @@ button:active {
     background-color: rgb(4, 63, 102);
     box-shadow: 3px 3px 3px rgb(239, 240, 241);
 }
-input {
+input, select {
     font-family: 'Courier New', Courier, monospace;
     font-style: oblique;
     font-weight: bold;
@@ -25,4 +25,10 @@ input {
     padding-left: 5px;
     border-radius: 0 5px 5px 0;
     height: 33px;
+    margin-right: 3px;
+}
+select {
+    margin: 5px 0;
+    height: 35px;
+    border-radius: 5px 5px;
 }

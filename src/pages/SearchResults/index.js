@@ -12,8 +12,8 @@ import { Helmet } from 'react-helmet';
 
 export default function SearchResults({ params }) {
 
-    const { keyword } = params;
-    const { loading, gifs, setPage, loadingNextPage } = useGifs({ keyword });
+    const { keyword, rating = 'g' } = params;
+    const { loading, gifs, setPage, loadingNextPage } = useGifs({ keyword, rating });
 
     const externalRef = useRef();
     const { isNearScreen, fromRef } = useNearScreen({
